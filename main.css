@@ -1,0 +1,156 @@
+/**** Google fonts ****/
+@import "http://fonts.googleapis.com/css?family=Exo:400,200|Ubuntu:300,400";
+
+/**** Global reset ****/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/**** Background ****/
+body, body.ownlist {
+  background: linear-gradient(135deg, #0094FF, #0FF) fixed;
+}
+
+/**** Side menu ****/
+.list-menu-float {
+  top: calc(50% - 225px);
+  left: calc(50% - 470px);
+  border: 0;
+  width: 50px;
+  background: none;
+  transition: height 200ms;
+}
+.list-menu-float .icon-menu {
+  background: rgba(0,0,0,0.2);
+}
+.list-menu-float .icon-menu:hover:not(.profile) {
+  background: red;
+}
+.list-menu-float .icon-menu svg.icon {
+  fill: #FFF;
+}
+
+/**** Header thing at the top ****/
+.header {
+  width: 100%;
+  max-width: 800px
+}
+
+
+
+/**** Entire list stuff ****/
+.list-container {
+  width: 100%;
+  max-width: 840px;
+  border: 0;
+  background: transparent;
+}
+.cover-block,
+.cover-block .image-container,
+.cover-block .image-container #cover-image,
+.status-menu-container,
+.status-menu-container .status-menu,
+.list-unit,
+.list-unit .list-status-title {
+  width: 100%;
+}
+
+/**** Header image stuff ****/
+.cover-block .image-container {
+  padding-top: 0;
+}
+.cover-block .image-container:hover .btn-list-setting {
+  display: none;
+}
+
+/**** Top bar buttons ****/
+.status-menu-container {
+  border: 0;
+  height: auto;
+}
+.status-menu-container.fixed {
+  left: 0;
+}
+.status-menu-container .status-menu {
+  border-spacing: 0;
+  display: block;
+  position: relative;
+}
+.status-menu-container.fixed .status-menu {
+  max-width: 840px;
+  margin: 0 auto;
+}
+.status-menu-container .status-menu .status-button {
+  height: auto;
+  display: inline-block;
+  padding: 10px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.status-menu-container .search-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.status-menu-container .search-container #search-box {
+  margin: 0 5px 7px 0;
+  vertical-align: middle;
+}
+.status-menu-container .search-container #search-button {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/**** List itself ****/
+.list-table {
+  border: 0;
+}
+.list-block {
+  margin-top: 30px;
+}
+
+/**** List items ****/
+.list-table .list-table-data .data,
+.list-table .list-table-header .header-title {
+  border: 0;
+}
+
+.list-table .list-item {
+  background: #FFF;
+}
+.list-table > .list-item:nth-of-type(2n+1) {
+  background: #F7F7F7;
+}
+.list-table .list-table-header .header-title {
+  background-image: none;
+}
+
+/**** Add-edit-more buttons ****/
+.list-table .list-table-data .data {
+  position: relative;
+  padding: 10px 5px;
+}
+.list-table .list-table-data .data.title .add-edit-more {
+  float: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 5px;
+}
+
+/**** Tags col customization ****/
+.list-table .list-table-header .header-title.tags,
+.list-table .list-table-data .data.tags {
+  width: 33%;
+  text-align: left;
+}
+.list-table .list-table-data .data.tags div a {
+  color: inherit;
+  cursor: inherit;
+}
+.list-table .list-table-data .data.tags div a:hover {
+  text-decoration: none;
+}
