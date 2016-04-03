@@ -357,20 +357,6 @@ html {
   margin: 5px;
 }
 
-/**** Tags col customization ****/
-.list-table .list-table-header .header-title.tags,
-.list-table .list-table-data .data.tags {
-  width: 33%;
-  text-align: left;
-}
-.list-table .list-table-data .data.tags div a {
-  color: inherit;
-  cursor: inherit;
-}
-.list-table .list-table-data .data.tags div a:hover {
-  text-decoration: none;
-}
-
 /**** Category re-coloring ****/
 /*.list-table .list-table-data .data.status.reading,
 .list-table .list-table-data .data.status.watching {
