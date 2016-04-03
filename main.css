@@ -1,6 +1,9 @@
 /**** Google fonts ****/
 @import "http://fonts.googleapis.com/css?family=Exo:400,200|Source+Sans+Pro:300,400";
 
+a { color: #0075C9;}
+a:hover { color: #0063BF; }
+
 /**** Global reset ****/
 *, *::before, *::after {
   box-sizing: border-box;
@@ -343,7 +346,7 @@ html {
 /*   color: #00D650; */
 }
 .list-table .list-table-data .data.status.completed {
-  background: #0094FF;
+  background: #6327EA;
 }
 .status.completed ~ td a {
 /*   color: #0094FF; */
