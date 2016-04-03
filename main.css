@@ -1,5 +1,5 @@
 /**** Google fonts ****/
-@import "http://fonts.googleapis.com/css?family=Exo:400,200|Ubuntu:300,400";
+@import "http://fonts.googleapis.com/css?family=Exo:400,200|Source+Sans+Pro:300,400";
 
 /**** Global reset ****/
 *, *::before, *::after {
@@ -8,32 +8,92 @@
 
 /**** Background ****/
 body, body.ownlist {
-  background: linear-gradient(135deg, #0094FF, #0FF) fixed;
+  background: url(http://i.imgur.com/QcnAAg5.jpg) fixed right top/cover;
+  font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
+  font-size: 12px;
+}
+
+html {
+  padding-top: 50px;
+  box-shadow: inset 0 160px rgba(0,0,0,0.2);
 }
 
 /**** Side menu ****/
 .list-menu-float {
-  top: calc(50% - 225px);
-  left: calc(50% - 470px);
+  top: 0;
+  left: calc(50% - 410px);
   border: 0;
-  width: 50px;
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
   background: none;
   transition: height 200ms;
+  pointer-events: none;
+}
+.list-menu-float:hover {
+  height: 400px;
 }
 .list-menu-float .icon-menu {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.5);
+  pointer-events: all;
+  transition: 200ms;
 }
 .list-menu-float .icon-menu:hover:not(.profile) {
-  background: red;
+  background: rgba(0,0,0,0.5);
 }
 .list-menu-float .icon-menu svg.icon {
   fill: #FFF;
 }
+.list-menu-float .icon-menu .text {
+  transition: inherit;
+}
+.list-menu-float .icon-menu.setting:hover {
+  width: 164px;
+}
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting {
+  background: transparent;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  background: rgba(0,0,0,0.2);
+  border-top: 0;
+  width: 100%;
+}
 
 /**** Header thing at the top ****/
 .header {
+  position: static;
+  max-width: 800px;
+  margin: 20px auto 50px;
+  font-family: "Exo", "Trebuchet MS", sans-serif;
+}
+.header .header-menu {
+  position: static;
+  height: 70px;
+  line-height: 70px;
+  display: table;
+  float: right;
+}
+.header .header-menu .btn-menu {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 24px;
+}
+.header .header-title {
+  position: static;
+  height: 70px;
+  background-position: left center;
+}
+.header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 160px;
+  left: 0;
   width: 100%;
-  max-width: 800px
+  height: 1px;
+  background: rgba(0,0,0,0.4);
 }
 
 
@@ -51,15 +111,46 @@ body, body.ownlist {
 .status-menu-container,
 .status-menu-container .status-menu,
 .list-unit,
-.list-unit .list-status-title {
+.list-unit .list-status-title,
+.list-unit .list-stats {
   width: 100%;
 }
 
 /**** Header image stuff ****/
 .cover-block .image-container {
   padding-top: 0;
+  box-shadow:
+    10px 10px rgba(0,0,0,0.2),
+    0 0 0 1px rgba(0,0,0,0.4);
 }
 .cover-block .image-container:hover .btn-list-setting {
+  background: #FFF;
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.4);;
+  top: 10px;
+  right: 10px;
+  text-shadow: none;
+  transition: 200ms;
+}
+.cover-block .image-container .btn-list-setting .fa-camera,
+.cover-block .image-container .btn-list-setting .icon-plus-circle {
+  color: #000;
+  box-shadow: none;
+  text-shadow: none;
+  background: transparent;
+}
+.cover-block .image-container .btn-list-setting .fa-camera {
+  position: relative;
+  top: 1px;
+}
+.cover-block .image-container .btn-list-setting .icon-plus-circle {
+  top: 5px;
+  left: 20px;
+  box-shadow: -1px 1px 0px 0px #FFF;
+  background-color: #FFF;
+  z-index: 1;
+}
+.cover-block .image-container .btn-list-setting:hover .text {
   display: none;
 }
 
@@ -67,41 +158,91 @@ body, body.ownlist {
 .status-menu-container {
   border: 0;
   height: auto;
-}
-.status-menu-container.fixed {
   left: 0;
+  position: fixed; /* Float the to the top all the time, it works better */
+  top: 0;
+  left: 0;
+  box-shadow: 0 1px rgba(0,0,0,0.4);
 }
 .status-menu-container .status-menu {
   border-spacing: 0;
   display: block;
   position: relative;
-}
-.status-menu-container.fixed .status-menu {
   max-width: 840px;
   margin: 0 auto;
+  padding: 0 70px;
+  display: flex;
+  justify-content: center;
 }
 .status-menu-container .status-menu .status-button {
   height: auto;
   display: inline-block;
-  padding: 10px;
+  padding: 15px 10px;
   font-size: 18px;
   line-height: 20px;
+  font-family: "Exo", "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+.status-menu-container .status-menu .status-button:hover {
+  background: #F7F7F7;
+}
+.status-menu-container .status-menu .status-button.on {
+  font-weight: 400;
+  color: #000;
+  background: #EEE;
+  border-left: 1px solid rgba(0,0,0,0.4);
+  border-right: 1px solid rgba(0,0,0,0.4)
+}
+.status-menu-container .status-menu .status-button::after {
+  content: initial;
 }
 .status-menu-container .search-container {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 10px;
-  line-height: 20px;
+  height: 100px;
+  line-height: 10px;
   vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
 }
 .status-menu-container .search-container #search-box {
-  margin: 0 5px 7px 0;
-  vertical-align: middle;
-}
-.status-menu-container .search-container #search-button {
   margin: 0;
   vertical-align: middle;
+  order: 2;
+  width: 50px;
+  height: 0;
+  transition: 200ms;
+}
+.status-menu-container .search-container #search-box.open {
+  width: 300px;
+  height: 50px;
+}
+.status-menu-container .search-container #search-box input {
+  background: rgba(0,0,0,0.5);
+  border: 0;
+  padding: 15px 10px;
+  height: 50px;
+  color: #FFF;
+}
+.status-menu-container .search-container #search-button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 15px 14px 15px 16px;
+  vertical-align: middle;
+  order: 1;
+  -webkit-filter: brightness(2.5);
+     -moz-filter: brightness(2.5);
+          filter: brightness(2.5);
+  background: rgba(0,0,0,0.3)
+}
+.status-menu .search-container #search-box.open + #search-button {
+  background: rgba(0,0,0,0.5);
 }
 
 /**** List itself ****/
@@ -109,7 +250,36 @@ body, body.ownlist {
   border: 0;
 }
 .list-block {
-  margin-top: 30px;
+  margin: 50px 0;
+  box-shadow:
+    10px 10px rgba(0,0,0,0.2),
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+/**** Unit header ****/
+.list-unit .list-status-title {
+  padding: 30px;
+  background: #FFF;
+  text-align: center;
+}
+.list-unit .list-status-title::before,
+.list-unit .list-status-title::after {
+  content: " \2014  ";
+  white-space: pre;
+  font-size: 56px;
+  font-weight: 300;
+  font-family: "Exo", "Trebuchet MS", sans-serif;
+}
+.list-unit .list-status-title .text {
+  font-size: 0;
+  font-weight: 300;
+  font-family: "Exo", "Trebuchet MS", sans-serif;
+  color: #000;
+  display: inline;
+}
+.list-unit .list-status-title .text::after {
+  content: "All Anime";
+  font-size: 56px;
 }
 
 /**** List items ****/
@@ -117,7 +287,6 @@ body, body.ownlist {
 .list-table .list-table-header .header-title {
   border: 0;
 }
-
 .list-table .list-item {
   background: #FFF;
 }
@@ -126,6 +295,15 @@ body, body.ownlist {
 }
 .list-table .list-table-header .header-title {
   background-image: none;
+}
+.list-table .list-table-data .data.status {
+  padding: 0;
+  width: 7px;
+}
+
+/**** Remove loading thing because it breaks stuff ****/
+.loading-space {
+  display: none;
 }
 
 /**** Add-edit-more buttons ****/
@@ -153,4 +331,53 @@ body, body.ownlist {
 }
 .list-table .list-table-data .data.tags div a:hover {
   text-decoration: none;
+}
+
+/**** Link coloring ****/
+.list-table .list-table-data .data.status.reading,
+.list-table .list-table-data .data.status.watching {
+  background: #00D650;
+}
+.status.watching ~ td a,
+.status-reading ~ .td a {
+/*   color: #00D650; */
+}
+.list-table .list-table-data .data.status.completed {
+  background: #0094FF;
+}
+.status.completed ~ td a {
+/*   color: #0094FF; */
+}
+.list-table .list-table-data .data.status.onhold {
+  background: #FF9B00;
+}
+.status.onhold ~ td a {
+/*   color: #FF9B00; */
+}
+.list-table .list-table-data .data.status.dropped {
+  background: #FF0700;
+}
+.status.dropped ~ td a {
+/*   color: #FF0700; */
+}
+.list-table .list-table-data .data.status.plantowatch {
+  background: #FF5BB2;
+}
+.status.plantowatch ~ td a{
+/*   color: #FF5BB2; */
+}
+
+/**** Footer ****/
+#footer-block {
+  background: rgba(0,0,0,0.2);
+  height: auto;
+  box-shadow: 0 -1px rgba(0,0,0,0.4);
+}
+#copyright {
+  color: #FFF;
+}
+#footer-block::after {
+  content: '"Myriad" theme base by Geo1088.';
+  display: block;
+  color: #FFF;
 }
