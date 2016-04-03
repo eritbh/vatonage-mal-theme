@@ -11,7 +11,7 @@ a:hover { color: #0063BF; }
 
 /**** Background ****/
 body, body.ownlist {
-  background: url(http://i.imgur.com/QcnAAg5.jpg) fixed right top/cover;
+  background: url(http://i.imgur.com/QcnAAg5.jpg) fixed center top/cover;
   font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
   font-size: 12px;
 }
