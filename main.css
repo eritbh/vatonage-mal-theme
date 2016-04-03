@@ -126,7 +126,10 @@ html {
     10px 10px rgba(0,0,0,0.2),
     0 0 0 1px rgba(0,0,0,0.4);
 }
-.cover-block .image-container:hover .btn-list-setting {
+.cover-block .image-container .btn-list-setting,
+.cover-block .image-container:hover .btn-list-setting,
+.cover-block .image-container:hover .btn-list-setting:hover {
+  position: absolute;
   background: #FFF;
   border: 0;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.4);;
@@ -134,9 +137,18 @@ html {
   right: 10px;
   text-shadow: none;
   transition: 200ms;
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 200ms;
+  font-size: 14px;
+  padding: 8px;
+}
+.cover-block .image-container:hover .btn-list-setting {
+  opacity: 1 !important;
 }
 .cover-block .image-container .btn-list-setting .fa-camera,
 .cover-block .image-container .btn-list-setting .icon-plus-circle {
+  position: absolute;
   color: #000;
   box-shadow: none;
   text-shadow: none;
@@ -282,10 +294,32 @@ html {
   display: inline;
 }
 .list-unit .list-status-title .text::after {
-  content: "All Anime";
   font-size: 56px;
 }
-
+.list-unit.all_anime .list-status-title .text::after { content: "All Anime" }
+.list-unit.watching .list-status-title .text::after { content: "Currently Watching" }
+.list-unit.reading .list-status-title .text::after { content: "Currently Reading" }
+.list-unit.completed .list-status-title .text::after { content: "Completed" }
+.list-unit.onhold .list-status-title .text::after { content: "On Hold" }
+.list-unit.dropped .list-status-title .text::after { content: "Dropped" }
+.list-unit.plantowatch .list-status-title .text::after { content: "Plan to Watch" }
+.list-unit.plantoread .list-status-title .text::after { content: "Plan to Read" }
+.list-unit .list-status-title .stats {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  margin: 0;
+  height: auto;
+  line-height: 1;
+}
+.list-unit .list-status-title .stats a {
+  color: #000;
+}
+.list-unit .list-stats {
+  background: #F7F7F7;
+  color: #000;
+}
 /**** List items ****/
 .list-table .list-table-data .data,
 .list-table .list-table-header .header-title {
@@ -337,39 +371,25 @@ html {
   text-decoration: none;
 }
 
-/**** Link coloring ****/
-.list-table .list-table-data .data.status.reading,
+/**** Category re-coloring ****/
+/*.list-table .list-table-data .data.status.reading,
 .list-table .list-table-data .data.status.watching {
   background: #00D650;
 }
 .status.watching ~ td a,
-.status-reading ~ .td a {
-/*   color: #00D650; */
-}
 .list-table .list-table-data .data.status.completed {
   background: #6327EA;
-}
-.status.completed ~ td a {
-/*   color: #0094FF; */
 }
 .list-table .list-table-data .data.status.onhold {
   background: #FF9B00;
 }
-.status.onhold ~ td a {
-/*   color: #FF9B00; */
-}
 .list-table .list-table-data .data.status.dropped {
   background: #FF0700;
 }
-.status.dropped ~ td a {
-/*   color: #FF0700; */
-}
-.list-table .list-table-data .data.status.plantowatch {
+.list-table .list-table-data .data.status.plantowatch,
+.list-table .list-table-data .data.status.plantoread {
   background: #FF5BB2;
-}
-.status.plantowatch ~ td a{
-/*   color: #FF5BB2; */
-}
+}*/
 
 /**** Footer ****/
 #footer-block {
